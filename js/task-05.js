@@ -1,12 +1,14 @@
 const inputName = document.querySelector('#name-input');
 const nameInTitle = document.querySelector('#name-output');
+// console.log(inputName.value);
 
 inputName.addEventListener('input', OutputName)
 
 function OutputName(event) {
     // console.log(event.currentTarget.value);
-    if (inputName === '') {
+    if (inputName.value.length === 0) {
         nameInTitle.innerText = 'незнакомец';
-    } 
-        nameInTitle.innerText = event.currentTarget.value;    
-}
+        return
+    }
+    nameInTitle.innerText = event.currentTarget.value;
+};

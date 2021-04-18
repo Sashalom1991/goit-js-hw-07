@@ -18,9 +18,13 @@ const images = [
 
 let htmlList = document.getElementById("gallery");
 
-const imgArray = images.forEach(image => {
-    const item = document.createElement('li');
-    item.insertAdjacentHTML("beforeend", `<img src="${image.url}" alt="${image.alt}" width = 370>`);
-    item.classList.add('img-gallery');
-    htmlList.appendChild(item);
-});
+const imagesItems = ({ url, alt}) => { return `<li class="img-gallery"><img src=${url} alt=${alt} width=370px></li>`};
+// console.log(imagesItems);
+
+const imagesItemsText = images.map(imagesItems);
+
+htmlList.insertAdjacentHTML("beforeend", imagesItemsText.join(''));
+// console.log(htmlList);
+
+
+

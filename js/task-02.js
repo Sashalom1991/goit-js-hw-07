@@ -1,3 +1,12 @@
+// const ingredients = [
+//   'Картошка',
+//   'Грибы',
+//   'Чеснок',
+//   'Помидоры',
+//   'Зелень',
+//   'Приправы',
+// ];
+
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -7,13 +16,12 @@ const ingredients = [
   'Приправы',
 ];
 
-let htmlList = document.getElementById("ingredients");
+const ingredientsRef = document.getElementById('ingredients');
 
-const listIngredients = ingredients.forEach(ingredient => {
-    let addLi = document.createElement('li');
-    addLi.innerHTML = ingredient;
-  htmlList.appendChild(addLi);
-  // console.log(addLi);
-})
+const makeListIt = ingredients.map(ingredient => {
+  const listItems = document.createElement('li');
+  listItems.textContent = ingredient;
+  return listItems;
+});
 
-// console.log(htmlList);
+ingredientsRef.append(...makeListIt);
